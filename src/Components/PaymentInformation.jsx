@@ -4,37 +4,32 @@ import { userContext } from '../ContextApi/contextapi'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 export const PaymentInformation = () => {
-    const [userData, setUserInfo] = useState({card_num:"", expiray_date:"", cvv:""})
-    //const [addskills, setaddSkills]= useState("")
     const navigate = useNavigate()
   
 
-    const {  paymentsDetails,setPaymentsDetails} = useContext(userContext)
+    const {  paymentsDetails,setPaymentsDetails, userDetails, shippingDetails} = useContext(userContext)
     const [error, setError] = useState(false)
     const handleChange = (event)=>{
-        setUserInfo({...userData, [event.target.name]: event.target.value})
-        // if(event.target.name ==="skills"){
-        //     setaddSkills(event.target.value)
-        // } 
+        setPaymentsDetails({...paymentsDetails, [event.target.name]: event.target.value});
+        setError(false)
     }
     
     const HandleSubmit = (e)=>{
     
         e.preventDefault()
-        if(userData.address==="" || userData.city==="" || userData.postalcode ===""){
+        if(paymentsDetails.card_num==="" || paymentsDetails.expiray_date==="" || paymentsDetails.cvv.length<3){
             setError(true)
         }else{
             setError(false)
-            setPaymentsDetails([...paymentsDetails, userData])
+           console.log()
         }
       
     }
-    
+    console.log("userDetails",userDetails)
+    console.log("shippingDetails",shippingDetails)
     console.log("paymentsDetails",paymentsDetails)
     
-        const {card_num,
-            expiray_date,
-            cvv} = userData
+        const {card_num, expiray_date,cvv} = paymentsDetails
   return (
     <div><form action="" onSubmit={HandleSubmit}>
     <label htmlFor="Name">Card Num</label>
