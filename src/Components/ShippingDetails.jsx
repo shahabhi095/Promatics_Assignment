@@ -8,9 +8,6 @@ export const ShippingDetails = () => {
     const [error, setError] = useState(false)
     const handleChange = (event)=>{
         setShippingDetails({...shippingDetails, [event.target.name]: event.target.value})
-        // if(event.target.name ==="skills"){
-        //     setaddSkills(event.target.value)
-        // } 
     }
     
     const handlePrev=()=>{

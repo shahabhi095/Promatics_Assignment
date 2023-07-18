@@ -10,14 +10,9 @@ const handleChange = (event)=>{
     setUSerDetails({...userDetails, [event.target.name]: event.target.value})
     setError(false)  
 }
-// if(userDetails.length!==0){
-//     setUserInfo(userDetails[userDetails.length-1])
-// }
-
-
 
 const handleNext=()=>{
-    if(userDetails.name==="" || userDetails.email==="" || userDetails.skills==="" ){
+    if(userDetails.name==="" || userDetails.email==="" || userDetails.skills.length===0 ){
         setError(true)
     }else{
         setError(false)

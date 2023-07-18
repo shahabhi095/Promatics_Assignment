@@ -1,7 +1,7 @@
 import React from 'react'
 import { useContext, useState } from 'react'
 import { userContext } from '../ContextApi/contextapi'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const PaymentInformation = () => {
     const navigate = useNavigate()
@@ -35,7 +35,7 @@ export const PaymentInformation = () => {
     <label htmlFor="Name">Card Num</label>
     <input type="number" name='card_num' value={card_num} onChange={handleChange} required/><br />
     <label htmlFor="email">Expiray Date</label>
-    <input type="date" name='expiray_date' value={expiray_date} onChange={handleChange}  required/><br />
+    <input type="date" name='expiray_date' value={expiray_date} onChange={handleChange} min={new Date().toISOString().split('T')[0]}  required/><br />
     <label htmlFor="skills" >CVV</label>
     <input type="number" name='cvv' onChange={handleChange}  value={cvv}/><br />
     
