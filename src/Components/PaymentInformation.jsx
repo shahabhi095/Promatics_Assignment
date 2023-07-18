@@ -41,6 +41,7 @@ export const PaymentInformation = () => {
     
     <input type="submit" />
 </form>
+{error===true?<h1>Data is not secure</h1>:null}
 <button disabled={error} onClick={()=>navigate("/shipingdetails")}>prev</button>
 </div>
   )
