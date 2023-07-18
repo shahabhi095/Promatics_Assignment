@@ -7,7 +7,7 @@ export const PaymentInformation = () => {
     const navigate = useNavigate()
   
 
-    const {  paymentsDetails,setPaymentsDetails, userDetails, shippingDetails} = useContext(userContext)
+    const { allData,setAllData, paymentsDetails,setPaymentsDetails, userDetails, shippingDetails} = useContext(userContext)
     const [error, setError] = useState(false)
     const handleChange = (event)=>{
         setPaymentsDetails({...paymentsDetails, [event.target.name]: event.target.value});
@@ -21,14 +21,14 @@ export const PaymentInformation = () => {
             setError(true)
         }else{
             setError(false)
-           console.log()
+            setAllData([...allData, [userDetails, shippingDetails,paymentsDetails]])
         }
       
     }
     console.log("userDetails",userDetails)
     console.log("shippingDetails",shippingDetails)
     console.log("paymentsDetails",paymentsDetails)
-    
+    console.log("all Data" , allData)
         const {card_num, expiray_date,cvv} = paymentsDetails
   return (
     <div><form action="" onSubmit={HandleSubmit}>
