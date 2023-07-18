@@ -25,8 +25,9 @@ const HandleSubmit = (e)=>{
         setError(true)
     }else{
         setError(false)
+        setUSerDetails([...userDetails, userData])
     }
-    setUSerDetails([...userDetails, userData])
+   
 }
 
 const handleNext=()=>{
